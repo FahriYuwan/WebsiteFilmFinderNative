@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - FilmFinder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'custom-blue-dark': '#3D5A80',
+              'custom-blue-light': '#98C1D9',
+              'custom-orange': '#EE6C4D',
+              'custom-white': '#FFFFFF',
+              'custom-blue': '#293241',
+            }
+          }
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h2 class="text-2xl font-bold text-center mb-8 text-custom-blue-dark">SIGN UP - FilmFinder <span>🎬</span></h2>
+        
+        <form>
+            <div class="mb-4">
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#3D5A80] focus:border-[#3D5A80]">
+            </div>
+
+            <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#3D5A80] focus:border-[#3D5A80]">
+            </div>
+
+            <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#3D5A80] focus:border-[#3D5A80]">
+            </div>
+
+            <div class="mb-6">
+                <label for="confirm-password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" id="confirm-password" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#3D5A80] focus:border-[#3D5A80]">
+            </div>
+
+            <button type="submit" class="w-full bg-custom-blue-dark text-white py-2 px-4 rounded-md hover:bg-custom-orange focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+          SIGN UP
+        </button>        
+    </form>
+    </div>
+</body>
+</html>
