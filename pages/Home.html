@@ -3,48 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="output.css" rel="stylesheet">
-  <title>Netflix Clone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Film Finder🎬</title>
 </head>
 <body class="bg-gray-900 text-white">
   <!-- Navbar -->
   <nav class="flex items-center justify-between p-4 bg-gray-800">
-    <div class="text-2xl font-bold">Netflix</div>
+    <div class="text-2xl font-bold">Film Finder🎬</div>
+    <!-- Search bar with button -->
+    <div class="flex items-center space-x-2">
+      <input 
+        type="text" 
+        placeholder="Search movies, logos..." 
+        class="w-96 px-4 py-2 text-gray-700 bg-white rounded-l focus:outline-none"
+      />
+      <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-r">
+        Search
+      </button>
+    </div>
     <div>
       <button class="px-4 py-2 bg-red-600 rounded">Sign In</button>
     </div>
   </nav>
-
-  <!-- Hero Section -->
-  <section class="flex items-center justify-center h-screen bg-cover bg-center" style="background-image: url('https://source.unsplash.com/random/1600x900');">
-    <div class="text-center">
-      <h1 class="text-5xl font-bold mb-4">Unlimited movies, TV shows, and more.</h1>
-      <p class="text-xl mb-8">Watch anywhere. Cancel anytime.</p>
-      <button class="px-6 py-3 bg-red-600 rounded text-xl">Get Started</button>
-    </div>
-  </section>
-
-  <!-- Content Section -->
-  <section class="p-8">
-    <h2 class="text-3xl font-bold mb-4">Popular on Netflix</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="bg-gray-800 p-4 rounded">
-        <img src="https://source.unsplash.com/random/400x600" alt="Movie" class="w-full h-auto rounded mb-2">
-        <h3 class="text-xl">Movie Title</h3>
-      </div>
-      <div class="bg-gray-800 p-4 rounded">
-        <img src="https://source.unsplash.com/random/400x600" alt="Movie" class="w-full h-auto rounded mb-2">
-        <h3 class="text-xl">Movie Title</h3>
-      </div>
-      <div class="bg-gray-800 p-4 rounded">
-        <img src="https://source.unsplash.com/random/400x600" alt="Movie" class="w-full h-auto rounded mb-2">
-        <h3 class="text-xl">Movie Title</h3>
-      </div>
-      <div class="bg-gray-800 p-4 rounded">
-        <img src="https://source.unsplash.com/random/400x600" alt="Movie" class="w-full h-auto rounded mb-2">
-        <h3 class="text-xl">Movie Title</h3>
+  <!-- Grid Container -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 p-10">
+    <!-- Card 1 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="../src/img/wednesday.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Wednesday</div>
+        <p class="text-gray-700 text-base">
+          Netflix Movie
+        </p>
       </div>
     </div>
-  </section>
+
+    <!-- Card 2 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\blackmirror.avif" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Black Mirror</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\queengambit.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">The Queen Gambit</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\dark.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Dark</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
+      </div>
+    </div>
+    
+    <!-- Add more cards as needed -->
+
+     <!-- Card 1 -->
+     <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <img class="w-full" src="../src/img/wednesday.jpg" alt="Random Image">
+        <div class="px-6 py-4">
+          <div class="text-black text-xl mb-2">Wednesday</div>
+          <p class="text-gray-700 text-base">
+            Netflix Movie
+          </p>
+        </div>
+      </div>
+  
+      <!-- Card 2 -->
+      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <img class="w-full" src="..\src\img\blackmirror.avif" alt="Random Image">
+        <div class="px-6 py-4">
+          <div class="text-black text-xl mb-2">Black Mirror</div>
+          <p class="text-gray-700 text-base">
+            Netflix
+          </p>
+        </div>
+      </div>
+  
+      <!-- Card 3 -->
+      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <img class="w-full" src="..\src\img\queengambit.jpg" alt="Random Image">
+        <div class="px-6 py-4">
+          <div class="text-black text-xl mb-2">The Queen Gambit</div>
+          <p class="text-gray-700 text-base">
+            Netflix
+          </p>
+        </div>
+      </div>
+  
+      <!-- Card 4 -->
+      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+        <img class="w-full" src="..\src\img\dark.jpg" alt="Random Image">
+        <div class="px-6 py-4">
+          <div class="text-black text-xl mb-2">Dark</div>
+          <p class="text-gray-700 text-base">
+            Netflix
+          </p>
+        </div>
+      </div>
+  </div>
 </body>
 </html>
