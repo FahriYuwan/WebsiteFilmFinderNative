@@ -14,9 +14,9 @@ FilmFinder adalah platform berbasis web yang menyediakan informasi terperinci te
 8. Validasi Ulasan dan Data Drama Baru: Admin dapat menerima atau menolak ulasan/komentar serta data drama yang dibuat oleh writer.
 
 ## Teknologi
-- **Frontend**: HTML, CSS, JavaScript, Tailwind CSS, ReactJS
+- **Frontend**: HTML, CSS, JavaScript, Tailwind CSS, ReactJS (belum)
 - **Backend**: Node.js atau PHP (belum diterapkan, masih native)
-- **Database**: (Tentukan jenis database jika ada)
+- **Database**: PostgreSQL (belum)
 
 ## Anggota Kelompok 7
 - Muhamad Fahri Yuwan Dwi Putra - D4 3B - 221524047
