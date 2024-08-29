@@ -1,28 +1,247 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              'custom-blue-dark': '#3D5A80',
-              'custom-blue-light': '#98C1D9',
-              'custom-orange': '#EE6C4D',
-              'custom-white': '#FFFFFF',
-              'custom-blue': '#293241',
-            }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'custom-blue-dark': '#3D5A80',
+            'custom-blue-light': '#98C1D9',
+            'custom-orange': '#EE6C4D',
+            'custom-white': '#FFFFFF',
+            'custom-blue': '#293241',
           }
         }
       }
-    </script>
-    <link rel="stylesheet" href="styles.css">
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <title>CMS Drama</title>
 </head>
-<body>
-    
+<body class="bg-gray-100 text-custom-white">
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-custom-blue-dark text-white flex flex-col p-4">
+      <div class="text-center text-white text-2xl font-semibold mb-5">
+        Film Finder
+      </div>
+      <ul class="space-y-4">
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Popular Movies</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Top Rated</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Upcoming</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Favorites</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Search</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 mt-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <div class="mt-auto p-6">
+        <a href="#" class="block bg-custom-orange text-center py-2 rounded-lg hover:bg-custom-blue-light transition duration-300">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col items-center p-10">
+      <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl mb-8">
+        <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-dark">Drama Management</h2>
+        <div class="flex space-x-4 mb-6">
+          <div>
+            <label for="filter-rating" class="block text-sm font-medium text-gray-700">Filter by Rating</label>
+            <select id="filter-rating" name="filter-rating" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+              <option value="">All Ratings</option>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-comments" class="block text-sm font-medium text-gray-700">Show Comments</label>
+            <select id="filter-comments" name="filter-comments" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <div>
+            <label for="search-comments" class="block text-sm font-medium text-gray-700">Search Comments</label>
+            <input
+              type="text"
+              id="search-comments"
+              name="search-comments"
+              class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
+              placeholder="Search comments"
+            />
+          </div>
+        </div>
+
+        <!-- Dramas Table -->
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr class="text-gray-700">
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Drama</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Actors</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Genres</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Synopsis</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Status</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-center text-sm font-semibold">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="dramas-table-body" class="text-sm">
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">Drama 1</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Actor 1, Actor 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Genre 1, Genre 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">This is a synopsis of Drama 1.</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Pending</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-center">
+                  <div class="flex justify-center space-x-2">
+                    <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Drama 1')">Approve</button>
+                    <button class="bg-red-400 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteDrama(this)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">Drama 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Actor 3, Actor 4</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Genre 3, Genre 4</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">This is a synopsis of Drama 2.</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Approved</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-center">
+                  <div class="flex justify-center space-x-2">
+                    <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Drama 2')">Approve</button>
+                    <button class="bg-red-400 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteDrama(this)">Delete</button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
+      <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-dark">Drama Details</h2>
+      <div class="flex justify-between mb-6">
+        <div>
+          <h3 class="text-xl font-semibold mb-2">Drama Name</h3>
+          <p id="popup-drama-name" class="text-lg text-custom-blue-dark mb-4"></p>
+          <h3 class="text-xl font-semibold text-custom-blue-dark mb-2">Description</h3>
+          <p class="text-lg text-custom-blue-dark mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc. Sed euismod, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc.</p>
+          <h3 class="text-xl font-semibold text-custom-blue-dark mb-2">Actors</h3>
+          <div class="flex space-x-4 text-custom-blue-dark">
+            <img src="actor1.jpg" alt="Actor 1" class="w-24 h-24 rounded-full">
+            <img src="actor2.jpg" alt="Actor 2" class="w-24 h-24 rounded-full">
+          </div>
+        </div>
+        <div>
+          <h3 class="text-xl text-custom-blue-dark font-semibold mb-2">Trailer</h3>
+          <video src="trailer.mp4" controls class="w-64"></video>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark">Approve</button>
+        <button class="bg-red-400 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="exitPopup()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function showPopup(dramaName) {
+      const popup = document.getElementById('popup');
+      const popupDramaName = document.getElementById('popup-drama-name');
+      popupDramaName.textContent = dramaName;
+      popup.classList.remove('hidden');
+    }
+
+    function hidePopup() {
+      const popup = document.getElementById('popup');
+      popup.classList.add('hidden');
+    }
+
+    function deleteDrama(button) {
+      const row = button.parentElement.parentElement.parentElement;
+      row.remove();
+    }
+
+    function approveSelected() {
+      const checkboxes = document.querySelectorAll('#dramas-table-body input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        const row = checkbox.parentElement.parentElement;
+        const statusCell = row.children[4];
+        statusCell.textContent = 'Approved';
+      });
+    }
+
+    function deleteSelected() {
+      const checkboxes = document.querySelectorAll('#dramas-table-body input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        const row = checkbox.parentElement.parentElement;
+        row.remove();
+      });
+    }
+
+    function exitPopup() {
+      hidePopup();
+    }
+  </script>
 </body>
 </html>
