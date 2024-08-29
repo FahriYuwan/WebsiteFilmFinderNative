@@ -23,42 +23,116 @@
   <title>CMS Countries Input</title>
 </head>
 <body class="bg-gray-100 text-custom-white">
-  <div class="min-h-screen flex flex-col items-center justify-center">
-    <div class="bg-custom-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
-      <h2 class="text-2xl font-bold text-center mb-6 text-custom-blue-dark">CMS Countries</h2>
-      <form id="country-form">
-        <div class="mb-3">
-          <label for="country-name" class="block text-sm font-medium text-black">
-            Country Name
-          </label>
-          <input
-            type="text"
-            id="country-name"
-            name="country-name"
-            required
-            class="mt-1 block w-full px-3 py-2 border border-custom-black rounded-md shadow-sm focus:outline-none focus:ring-custom-orange focus:border-custom-orange bg-custom-white text-custom-blue-dark text-sm"
-          />
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-custom-blue-dark text-white flex flex-col p-4">
+      <div class="text-center text-white text-2xl font-semibold mb-5">
+        Film Finder
+      </div>
+      <ul class="space-y-4">
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Popular Movies</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Top Rated</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Upcoming</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Favorites</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Search</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="flex items-center p-3 mt-3 rounded-lg hover:bg-custom-orange transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-custom-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18M3 18h18M3 6h18" />
+            </svg>
+            <span class="text-sm font-medium">Settings</span>
+          </a>
+        </li>
+      </ul>
+      <div class="mt-auto p-6">
+        <a href="#" class="block bg-custom-orange text-center py-2 rounded-lg hover:bg-custom-blue-light transition duration-300">Logout</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col items-center p-10">
+      <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-xl mb-8">
+        <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-dark">Add New Country</h2>
+        <form id="country-form" class="space-y-6">
+          <div>
+            <label for="country-name" class="block text-sm font-medium text-gray-700">Country Name</label>
+            <input
+              type="text"
+              id="country-name"
+              name="country-name"
+              required
+              class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
+              placeholder="Enter a country name"
+            />
+          </div>
+          <button
+            type="submit"
+            class="w-full bg-custom-blue-dark text-white py-3 px-4 rounded-md hover:bg-custom-orange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 text-sm font-medium">
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <!-- Countries Table -->
+      <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
+        <h2 class="text-2xl font-extrabold text-center mb-6 text-custom-blue-dark">Countries List</h2>
+        <div class="overflow-x-auto">
+          <table class="min-w-full bg-white">
+            <thead>
+              <tr class="text-gray-700">
+                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Country Name</th>
+                <th class="py-3 px-4 border-b border-gray-300 text-center text-sm font-semibold">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="countries-table-body" class="text-sm">
+              <!-- Rows will be added here dynamically -->
+            </tbody>
+          </table>
         </div>
-        <button
-          type="submit"
-          class="w-full bg-custom-blue-dark text-custom-white py-2 px-4 rounded-md hover:bg-custom-orange focus:outline-none focus:ring-2 focus:ring-offset-2 text-sm">
-          Submit
-        </button>
-      </form>
-    </div>
-    <div class="bg-custom-white p-6 rounded-lg shadow-lg w-full max-w-3xl mt-6">
-      <h2 class="text-xl font-bold text-center mb-4 text-custom-blue-dark">Countries List</h2>
-      <table class="min-w-full bg-custom-white text-custom-blue-dark border-separate border-spacing-y-2">
-        <thead>
-          <tr>
-            <th class="py-2 px-4 border-b border-custom-blue-dark text-sm font-semibold text-">Country Name</th>
-            <th class="py-2 px-4 border-b border-custom-blue-dark text-center text-sm font-semibold ">Actions</th>
-          </tr>
-        </thead>
-        <tbody id="countries-table-body" class="text-sm">
-          <!-- Rows will be added here dynamically -->
-        </tbody>
-      </table>
+      </div>
     </div>
   </div>
 
@@ -71,12 +145,12 @@
       const newRow = document.createElement('tr');
 
       newRow.innerHTML = `
-        <td class="py-2 px-4 border-b border-custom-blue-dark text- font-medium">${countryName}</td>
-        <td class="py-2 px-4 border-b border-custom-blue-dark text-right">
-            <div class ="text-center">            
-                <button class="bg-custom-orange text-custom-white py-1 px-2 rounded-md hover:bg-custom-blue-light focus:outline-none focus:ring-2 focus:ring-custom-orange focus:ring-offset-2 mr-2" onclick="renameCountry(this)">Rename</button>
-                <button class="bg-red-600 text-custom-white py-1 px-2 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteCountry(this)">Delete</button>
-            </div>
+        <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">${countryName}</td>
+        <td class="py-2 px-4 border-b border-gray-300 text-center">
+          <div class="flex justify-center space-x-2">
+            <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="renameCountry(this)">Rename</button>
+            <button class="bg-red-600 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteCountry(this)">Delete</button>
+          </div>
         </td>
       `;
 
@@ -87,7 +161,7 @@
     });
 
     function renameCountry(button) {
-      const row = button.parentElement.parentElement;
+      const row = button.parentElement.parentElement.parentElement;
       const countryNameCell = row.children[0];
       const newCountryName = prompt("Enter new country name:", countryNameCell.textContent);
       if (newCountryName) {
@@ -96,7 +170,7 @@
     }
 
     function deleteCountry(button) {
-      const row = button.parentElement.parentElement;
+      const row = button.parentElement.parentElement.parentElement;
       row.remove();
     }
   </script>
