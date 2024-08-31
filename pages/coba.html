@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'dark-bg': '#1F2937',  /* Dark gray-blue */
+            'dark-hover': '#334155', /* Slightly lighter gray-blue */
+            'dark-text': '#F9FAFB', /* Very light gray */
+            'dark-accent': '#EE6C4D', /* Custom orange for accents */
+            'dark-border': '#374151', /* Darker gray for borders */
+            'dark-card-bg': '#2D3748', /* Darker gray-blue for cards */
+            'dark-card-border': '#4A5568', /* Slightly lighter gray for card borders */
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Dashboard</title>
+</head>
+<body class="bg-gray-900 text-dark-text flex">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="h-screen w-64 bg-dark-bg border-r border-dark-border shadow-sm flex flex-col">
+    <!-- Header -->
+    <div class="p-4 pb-2 flex justify-between items-center">
+      <img src="/images/just-text.png" id="sidebar-logo" class="w-60 overflow-hidden transition-all" alt="Logo" />
+      <button id="toggle-button" class="p-1.5 rounded-lg bg-dark-hover hover:bg-dark-border transition duration-300">
+        <svg id="toggle-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-dark-text" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <polyline id="toggle-chevron" points="15 6 9 12 15 18"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <!-- User Info -->
+    <div class="flex items-center p-4">
+      <img src="https://ui-avatars.com/api/?background=3D5A80&color=F9FAFB&bold=true&name=John+Doe" alt="User Avatar" class="w-10 h-10 rounded-md" />
+      <div class="ml-3 sidebar-item-text">
+        <h4 class="font-semibold text-dark-text">John Doe</h4>
+        <span class="text-xs text-gray-400">johndoe@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- Menu Items -->
+    <ul class="flex-1 px-3">
+      <!-- Item 1 -->
+      <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors hover:bg-dark-hover text-dark-text sidebar-item">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+          </svg>
+          <span class="sidebar-item-text">Item 1</span>
+        </div>
+        <ul class="submenu pl-8">
+          <li class="py-2 text-gray-400">Sub Item 1</li>
+          <li class="py-2 text-gray-400">Sub Item 2</li>
+        </ul>
+        <div class="tooltip absolute left-full rounded-md px-2 py-1 ml-6 bg-dark-hover text-dark-text text-sm -translate-x-3">
+          Item 1
+        </div>
+      </li>
+      <!-- Item 2 -->
+      <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors hover:bg-dark-hover text-dark-text sidebar-item">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4v4H3zM17 10h4v4h-4z"></path>
+          </svg>
+          <span class="sidebar-item-text">Item 2</span>
+        </div>
+        <ul class="submenu pl-8">
+          <li class="py-2 text-gray-400">Sub Item 3</li>
+          <li class="py-2 text-gray-400">Sub Item 4</li>
+        </ul>
+        <div class="tooltip absolute left-full rounded-md px-2 py-1 ml-6 bg-dark-hover text-dark-text text-sm -translate-x-3">
+          Item 2
+        </div>
+      </li>
+      <!-- Item 3 -->
+      <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors hover:bg-dark-hover text-dark-text sidebar-item">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v8m4-4H4m16 4l-4-4 4-4"></path>
+          </svg>
+          <span class="sidebar-item-text">Item 3</span>
+        </div>
+        <ul class="submenu pl-8">
+          <li class="py-2 text-gray-400">Sub Item 5</li>
+          <li class="py-2 text-gray-400">Sub Item 6</li>
+        </ul>
+        <div class="tooltip absolute left-full rounded-md px-2 py-1 ml-6 bg-dark-hover text-dark-text text-sm -translate-x-3">
+          Item 3
+        </div>
+      </li>
+      <!-- Item 4 -->
+      <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors hover:bg-dark-hover text-dark-text sidebar-item">
+        <div class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-dark-text" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H6z"></path>
+          </svg>
+          <span class="sidebar-item-text">Item 4</span>
+        </div>
+        <ul class="submenu pl-8">
+          <li class="py-2 text-gray-400">Sub Item 7</li>
+          <li class="py-2 text-gray-400">Sub Item 8</li>
+        </ul>
+        <div class="tooltip absolute left-full rounded-md px-2 py-1 ml-6 bg-dark-hover text-dark-text text-sm -translate-x-3">
+          Item 4
+        </div>
+      </li>
+    </ul>
+
+    <!-- Footer/Logout -->
+    <div class="border-t border-dark-border flex items-center p-3 mt-auto">
+      <button id="logout-btn" class="flex items-center text-dark-text hover:text-dark-accent transition duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H5a3 3 0 01-3-3V5a3 3 0 013-3h5a3 3 0 013 3v1" />
+        </svg>
+        <span id="logout-text" class="ml-2">Logout</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 bg-gray-800 text-dark-text">
+    <header class="mb-4">
+      <h1 class="text-3xl font-bold">Dashboard</h1>
+    </header>
+
+    <section class="mb-6">
+      <div class="bg-dark-card-bg p-4 rounded-lg border border-dark-card-border shadow-md">
+        <h2 class="text-2xl font-semibold mb-2">Section Title</h2>
+        <p class="text-gray-400">This is a section description. You can include various types of content here, such as charts, tables, or any other data visualization tools.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="bg-dark-card-bg p-4 rounded-lg border border-dark-card-border shadow-md">
+        <h2 class="text-2xl font-semibold mb-2">Another Section</h2>
+        <p class="text-gray-400">This is another section description. Ensure that the content contrasts well with the background to maintain readability and good design.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('toggle-button');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const logoutText = document.getElementById('logout-text');
+    const submenu = document.querySelectorAll('.submenu');
+
+    toggleButton.addEventListener('click', () => {
+      sidebar.classList.toggle('expanded');
+      sidebar.classList.toggle('collapsed');
+      
+      // Check if sidebar is collapsed
+      if (sidebar.classList.contains('collapsed')) {
+        toggleIcon.innerHTML = '<polyline points="9 6 15 12 9 18"></polyline>';
+        logoutText.style.display = 'none';
+      } else {
+        toggleIcon.innerHTML = '<polyline points="15 6 9 12 15 18"></polyline>';
+        logoutText.style.display = 'block';
+      }
+
+      submenu.forEach(menu => menu.classList.remove('expanded'));
+    });
+
+    // Submenu toggle logic
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+    sidebarItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const submenu = item.querySelector('.submenu');
+        submenu.classList.toggle('expanded');
+      });
+    });
+  </script>
+</body>
+</html>
