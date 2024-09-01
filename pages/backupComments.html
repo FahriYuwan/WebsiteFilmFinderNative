@@ -112,7 +112,7 @@
         </div>
       </li>
     <!-- Actors Item -->
-    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group active">
+    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group">
       <div class="flex items-center">
         <a href="CMSActors.html" class="flex items-center rounded-md w-full">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -126,7 +126,7 @@
       </div>
     </li>
     <!-- Comments Item -->
-    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group">
+    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group active">
       <div class="flex items-center">
         <a href="CMSComments.html" class="flex items-center rounded-md w-full">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -172,77 +172,99 @@
     <div class="flex-1 flex flex-col items-center p-10 bg-gray-800 text-dark-text">
       <!-- Form Section -->
       <div class="bg-dark-card-bg text-dark-text p-8 rounded-lg shadow-md w-full max-w-xl mb-8">
-        <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-light">Add Actor</h2>
-        <form id="actor-form" class="space-y-6">
+        <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-light">Comments Management</h2>
+        <div class="flex space-x-4 mb-6">
           <div>
-            <label for="country" class="block text-sm font-medium text-dark-text">Country</label>
+            <label for="filter-rating" class="block text-sm font-medium text-dark-text">Filter by Rating</label>
+            <select id="filter-rating" name="filter-rating" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+              <option value="">All Ratings</option>
+              <option value="1">1 Star</option>
+              <option value="2">2 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="5">5 Stars</option>
+            </select>
+          </div>
+          <div>
+            <label for="filter-comments" class="block text-sm font-medium text-dark-text">Show Comments</label>
+            <select id="filter-comments" name="filter-comments" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="50">50</option>
+              <option value="100">100</option>
+            </select>
+          </div>
+          <div>
+            <label for="search-comments" class="block text-sm font-medium text-dark-text">Search Comments</label>
             <input
               type="text"
-              id="country"
-              name="country"
-              required
+              id="search-comments"
+              name="search-comments"
               class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
-              placeholder="Enter country"
+              placeholder="Search comments"
             />
           </div>
-          <div>
-            <label for="actor-name" class="block text-sm font-medium text-dark-text">Actor Name</label>
-            <input
-              type="text"
-              id="actor-name"
-              name="actor-name"
-              required
-              class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
-              placeholder="Enter actor name"
-            />
-          </div>
-          <div>
-            <label for="birth-date" class="block text-sm font-medium text-dark-text">Birth Date</label>
-            <input
-              type="date"
-              id="birth-date"
-              name="birth-date"
-              required
-              class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
-            />
-          </div>
-          <div>
-            <label for="picture" class="block text-sm font-medium text-dark-text">Upload Picture</label>
-            <input
-              type="file"
-              id="picture"
-              name="picture"
-              accept="image/*"
-              required
-              class="mt-2 block w-full border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
-            />
-          </div>
-          <button
-            type="submit"
-            class="w-full bg-dark-accent text-dark-text py-3 px-4 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-0 focus:ring-offset-2 focus:ring-dark-accent text-sm font-medium">
-            Submit
-          </button>
-        </form>
-      </div>
+        </div>
 
-      <!-- Actors Table -->
-      <div class="bg-dark-card-bg p-8 rounded-lg shadow-md w-full max-w-4xl">
-        <h2 class="text-2xl font-extrabold text-center mb-6 text-custom-blue-light">Actors List</h2>
+        <!-- Comments Table -->
         <div class="overflow-x-auto">
           <table class="min-w-full bg-dark-card-bg text-dark-text">
             <thead>
               <tr>
-                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Country</th>
-                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Actor Name</th>
-                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Birth Date</th>
-                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Photo</th>
-                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold" style="width: 150px;">Actions</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">
+                </th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Username</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Rate</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Drama</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Comments</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Status</th>
               </tr>
             </thead>
-            <tbody id="actors-table-body" class="text-sm">
+            <tbody id="comments-table-body" class="text-sm">
               <!-- Rows will be added here dynamically -->
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">
+                  <input type="checkbox" class="form-checkbox h-4 w-4 text-custom-blue-dark">
+                </td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">user1</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">5</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Drama A</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Great drama!</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Pending</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">
+                  <input type="checkbox" class="form-checkbox h-4 w-4 text-custom-blue-dark">
+                </td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">user2</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">4</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Drama B</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Good drama.</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Pending</td>
+              </tr>
+              <tr>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">
+                  <input type="checkbox" class="form-checkbox h-4 w-4 text-custom-blue-dark">
+                </td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">user3</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">3</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Drama C</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Average drama.</td>
+                <td class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Pending</td>
+              </tr>
             </tbody>
           </table>
+        </div>
+
+        <div class="flex justify-between items-center mt-4">
+          <div>
+            <input type="checkbox" id="select-all-bottom" class="form-checkbox h-4 w-4 text-custom-blue-dark">
+            <label for="select-all-bottom" class="ml-2 text-sm font-medium">Select All</label>
+          </div>
+          <div class="flex space-x-4">
+            <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="approveSelected()">Approve</button>
+            <button class="bg-red-500 text-dark-text py-1 px-3 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteSelected()">Delete</button>
+          </div>
         </div>
       </div>
     </div>
@@ -253,61 +275,32 @@
     const toggleIcon = document.getElementById('toggle-icon');
     const logoutText = document.getElementById('logout-text');
     const submenu = document.querySelectorAll('.submenu');
-    document.getElementById('actor-form').addEventListener('submit', function(event) {
-      event.preventDefault();
 
-      const country = document.getElementById('country').value;
-      const actorName = document.getElementById('actor-name').value;
-      const birthDate = document.getElementById('birth-date').value;
-      const picture = document.getElementById('picture').files[0];
-      const tableBody = document.getElementById('actors-table-body');
-      const newRow = document.createElement('tr');
+    // document.getElementById('select-all').addEventListener('change', function() {
+    //   const checkboxes = document.querySelectorAll('#comments-table-body input[type="checkbox"]');
+    //   checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+    // });
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const imageUrl = e.target.result;
-        newRow.innerHTML = `
-          <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium">${country}</td>
-          <td class="py-2 px-4 border-b border-gray-300 text-sm">${actorName}</td>
-          <td class="py-2 px-4 border-b border-gray-300 text-sm">${birthDate}</td>
-          <td class="py-2 px-4 border-b border-gray-300 text-sm"><img src="${imageUrl}" alt="${actorName}" class="h-32 w-32 object-cover rounded-full"></td>
-          <td class="py-2 px-4 border-b border-gray-300 text-center">
-            <div class="flex justify-center space-x-2">
-              <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="editActor(this)">Edit</button>
-              <button class="bg-red-500 text-dark-text py-1 px-3 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteActor(this)">Delete</button>
-            </div>
-          </td>
-        `;
-        tableBody.appendChild(newRow);
-      };
-      reader.readAsDataURL(picture);
-
-      // Clear the form
-      document.getElementById('actor-form').reset();
+    document.getElementById('select-all-bottom').addEventListener('change', function() {
+      const checkboxes = document.querySelectorAll('#comments-table-body input[type="checkbox"]');
+      checkboxes.forEach(checkbox => checkbox.checked = this.checked);
     });
 
-    function editActor(button) {
-      const row = button.parentElement.parentElement.parentElement;
-      const countryCell = row.children[0];
-      const actorNameCell = row.children[1];
-      const birthDateCell = row.children[2];
-      const newCountry = prompt("Enter new country:", countryCell.textContent);
-      const newActorName = prompt("Enter new actor name:", actorNameCell.textContent);
-      const newBirthDate = prompt("Enter new birth date:", birthDateCell.textContent);
-      if (newCountry) {
-        countryCell.textContent = newCountry;
-      }
-      if (newActorName) {
-        actorNameCell.textContent = newActorName;
-      }
-      if (newBirthDate) {
-        birthDateCell.textContent = newBirthDate;
-      }
+    function approveSelected() {
+      const checkboxes = document.querySelectorAll('#comments-table-body input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        const row = checkbox.parentElement.parentElement;
+        const statusCell = row.children[5];
+        statusCell.textContent = 'Approved';
+      });
     }
 
-    function deleteActor(button) {
-      const row = button.parentElement.parentElement.parentElement;
-      row.remove();
+    function deleteSelected() {
+      const checkboxes = document.querySelectorAll('#comments-table-body input[type="checkbox"]:checked');
+      checkboxes.forEach(checkbox => {
+        const row = checkbox.parentElement.parentElement;
+        row.remove();
+      });
     }
     // Minimize sidebar logic  
     toggleButton.addEventListener('click', () => {
