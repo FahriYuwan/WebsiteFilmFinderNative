@@ -1,3 +1,21 @@
+table {
+    width: 100%;
+    border-collapse: collapse; /* Menghindari jarak antar border */
+  }
+  
+  td {
+    padding: 8px; /* Menambahkan jarak di dalam sel */
+    vertical-align: middle; /* Menyelaraskan konten secara vertikal */
+  }
+  
+  /* Style tombol dalam tabel */
+  button {
+    display: inline-block;
+    padding: 4px 8px;
+    margin: 2px;
+    font-size: 0.875rem; /* Ukuran font tombol */
+  }
+
 .custom-blue-dark {
     background-color: #3D5A80;
     color: #FFFFFF;
@@ -36,86 +54,104 @@ background-color: #334155; /* Warna abu-abu biru untuk hover */
 }
 /* Sidebar expand/collapse */
 #sidebar {
-    transition: width 0.3s ease;
-    }
-    #sidebar.expanded {
-    width: 240px;
-    }
-    #sidebar.collapsed {
-    width: 60px;
-    }
+transition: width 0.3s ease;
+}
+#sidebar.expanded {
+width: 240px;
+}
+#sidebar.collapsed {
+width: 60px;
+}
 
-    /* Sidebar text expand/collapse */
-    .sidebar-item-text {
-    transition: width 0.3s ease, margin-left 0.3s ease;
-    overflow: hidden;
-    white-space: nowrap;
-    }
-    .expanded .sidebar-item-text {
-    width: 100%;
-    margin-left: 12px;
-    }
-    .collapsed .sidebar-item-text {
-    width: 0;
-    margin-left: 0;
-    }
+/* Sidebar text expand/collapse */
+.sidebar-item-text {
+transition: width 0.3s ease, margin-left 0.3s ease;
+overflow: hidden;
+white-space: nowrap;
+}
+.expanded .sidebar-item-text {
+width: 100%;
+margin-left: 12px;
+}
+.collapsed .sidebar-item-text {
+width: 0;
+margin-left: 0;
+}
 
-    /* Submenu collapse/expand */
-    .submenu {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-    }
-    .submenu.expanded {
-    max-height: 200px;
-    }
 
-    /* Tooltip */
-    .sidebar-item .tooltip {
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    width: 60px;
-    max-width: 150px; /* Tambahkan properti width untuk memperlebar tooltip */
-    }
-
-    .sidebar-item:hover .tooltip {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-    }
-
-    .sidebar-item.active {
-    background-color: #334155; /* Warna latar belakang untuk item aktif */
-    color: #EE6C4D; /* Warna teks untuk item aktif */
-    }
-
-    .sidebar-item.active .sidebar-item-text {
-    color: #EE6C4D; /* Warna teks untuk item aktif */
-    }
-    
-    .sidebar-item.active svg {
-    stroke: #EE6C4D; /* Warna ikon untuk item aktif */
-    }
-    
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-    #sidebar.expanded {
-        width: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 100%;
-        z-index: 50;
-    }
-    #sidebar.collapsed {
-        width: 0;
-    }
-    #sidebar {
-        display: none;
-    }
-    #sidebar.expanded {
-        display: flex;
-    }
-    }
+/* Submenu collapse/expand */
+.submenu {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.3s ease, opacity 0.8s ease;
+}
+.submenu.expanded {
+max-height: 500px;
+opacity: 1;
+}
   
+.submenu .active {
+    background-color: #1F2937; /* Warna latar belakang untuk item aktif */
+    color: #EE6C4D; /* Warna teks untuk item aktif */
+  }
+
+.tooltip {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    }
+
+    
+    
+/* Tooltip */
+.sidebar-item .tooltip {
+visibility: hidden;
+opacity: 0;
+transition: opacity 0.3s ease, transform 0.3s ease;
+width: 80px;
+max-width: 150px; /* Tambahkan properti width untuk memperlebar tooltip */
+}
+
+.sidebar-item:hover .tooltip {
+visibility: visible;
+opacity: 1;
+transform: translateX(0);
+}
+
+.sidebar-item.active {
+background-color: #334155; /* Warna latar belakang untuk item aktif */
+color: #EE6C4D; /* Warna teks untuk item aktif */
+}
+
+.sidebar-item.active .sidebar-item-text {
+color: #EE6C4D; /* Warna teks untuk item aktif */
+}
+
+.sidebar-item.active svg {
+stroke: #EE6C4D; /* Warna ikon untuk item aktif */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+#sidebar.expanded {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 50;
+}
+#sidebar.collapsed {
+    width: 64px;
+}
+#sidebar {
+    transition: width 0.3s ease;
+}
+#sidebar.expanded {
+    display: flex;
+}
+#sidebar.collapsed .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    }
+}
