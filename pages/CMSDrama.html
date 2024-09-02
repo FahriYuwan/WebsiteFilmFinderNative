@@ -176,7 +176,7 @@
         <div class="flex space-x-4 mb-6">
           <div>
             <label for="filter-rating" class="block text-sm font-medium text-dark-text">Filter by Status</label>
-            <select id="filter-rating" name="filter-rating" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+            <select id="filter-rating" name="filter-rating" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm text-black">
               <option value="">All Status</option>
               <option value="approved">Approved </option>
               <option value="pending">Pending</option>
@@ -184,7 +184,7 @@
           </div>
           <div>
             <label for="filter-film" class="block text-sm font-medium text-dark-text">Show Film</label>
-            <select id="filter-film" name="filter-film" class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm">
+            <select id="filter-film" name="filter-film" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm text-black">
               <option value="10">10</option>
               <option value="20">20</option>
               <option value="50">50</option>
@@ -197,7 +197,7 @@
               type="text"
               id="search-film"
               name="search-film"
-              class="mt-2 block w-full px-4 py-3 text-black border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm"
+              class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm text-black"
               placeholder="Search film"
             />
           </div>
@@ -205,24 +205,24 @@
 
         <!-- films Table -->
         <div class="overflow-x-auto">
-          <table class="min-w-full bg-white">
+          <table class="min-w-full bg-dark-card-bg text-dark-text">
             <thead>
-              <tr class="text-gray-700">
-                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Film</th>
-                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Actors</th>
-                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Genres</th>
-                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Synopsis</th>
-                <th class="py-3 px-4 border-b border-gray-300 text-left text-sm font-semibold">Status</th>
-                <th class="py-3 px-4 border-b border-gray-300 text-center text-sm font-semibold">Actions</th>
+              <tr>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Film</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Actors</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Genres</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Synopsis</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Status</th>
+                <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-bold">Actions</th>
               </tr>
             </thead>
             <tbody id="films-table-body" class="text-sm">
               <tr>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">Film 1</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Actor 1, Actor 2</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Genre 1, Genre 2</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">This is a synopsis of Film 1.</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Pending</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium">Film 1</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Actor 1, Actor 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Genre 1, Genre 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">This is a synopsis of Film 1.</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Pending</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-center">
                   <div class="flex justify-center space-x-2">
                     <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Film 1')">Approve</button>
@@ -231,11 +231,11 @@
                 </td>
               </tr>
               <tr>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium text-black">Film 2</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Actor 3, Actor 4</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Genre 3, Genre 4</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">This is a synopsis of Film 2.</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm text-black">Approved</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium">Film 2</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Actor 3, Actor 4</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Genre 3, Genre 4</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">This is a synopsis of Film 2.</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-sm">Approved</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-center">
                   <div class="flex justify-center space-x-2">
                     <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Film 2')">Approve</button>
@@ -252,29 +252,35 @@
 
   <!-- Popup -->
   <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-4xl">
-      <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-dark">Film Details</h2>
-      <div class="flex justify-between mb-6">
-        <div>
-          <h3 class="text-xl font-semibold mb-2">Film Name</h3>
-          <p id="popup-film-name" class="text-lg text-custom-blue-dark mb-4"></p>
-          <h3 class="text-xl font-semibold text-custom-blue-dark mb-2">Description</h3>
-          <p class="text-lg text-custom-blue-dark mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc. Sed euismod, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc.</p>
-          <h3 class="text-xl font-semibold text-custom-blue-dark mb-2">Actors</h3>
-          <div class="flex space-x-4 text-custom-blue-dark">
-            <img src="actor1.jpg" alt="Actor 1" class="w-24 h-24 rounded-full">
-            <img src="actor2.jpg" alt="Actor 2" class="w-24 h-24 rounded-full">
+    <div class="bg-gray-900 p-6 rounded-lg shadow-lg w-full max-w-4xl">
+      <div class="flex justify-between items-start mb-4">
+        <h2 class="text-3xl font-extrabold text-custom-blue-dark">Film Details</h2>
+        <button class="text-gray-400 hover:text-gray-200 focus:outline-none" onclick="exitPopup()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="flex mb-6">
+        <div class="w-2/3 pr-4">
+          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark">Film Name</h3>
+          <p id="popup-film-name" class="text-lg text-gray-300 mb-4"></p>
+          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark">Description</h3>
+          <p class="text-lg text-gray-300 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc. Sed euismod, nunc id lacinia tincidunt, nunc nunc ultricies nunc, ac lacinia nunc nunc id nunc.</p>
+          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark">Actors</h3>
+          <div class="flex space-x-4">
+            <img src="actor1.jpg" alt="Actor 1" class="w-24 h-24 rounded-full border-2 border-gray-700">
+            <img src="actor2.jpg" alt="Actor 2" class="w-24 h-24 rounded-full border-2 border-gray-700">
           </div>
         </div>
-        <div>
-          <h3 class="text-xl text-custom-blue-dark font-semibold mb-2">Trailer</h3>
-          <video src="trailer.mp4" controls class="w-64"></video>
+        <div class="w-1/3">
+          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark">Trailer</h3>
+          <video src="trailer.mp4" controls class="w-full rounded-lg border-2 border-gray-700"></video>
         </div>
       </div>
-      <div class="flex justify-end">
-        //button approve belum dibenerin untuk hovernya
-        <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark">Approve</button>
-        <button class="bg-red-500 text-dark-text py-1 px-3 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="exitPopup()">Close</button>
+      <div class="flex justify-end space-x-4">
+        <button class="bg-custom-blue-light text-dark-text py-2 px-4 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark">Approve</button>
+        <button class="bg-red-500 text-dark-text py-2 px-4 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="exitPopup()">Close</button>
       </div>
     </div>
   </div>

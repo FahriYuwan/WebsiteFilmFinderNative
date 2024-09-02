@@ -49,7 +49,7 @@
     <!-- Menu Items -->
     <ul class="flex-1 px-3">
     <!-- Film Item -->
-    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group">
+    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group active">
       <div class="flex items-center rounded-md">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
           <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
@@ -61,7 +61,7 @@
         <li class="py-2 px-3 text-gray-400 transition-colors rounded-md hover:bg-dark-card-bg">
           <a href="CMSDrama.html" class="w-full h-full block">Validate</a>
         </li>
-        <li class="py-2 px-3 text-gray-400 transition-colors rounded-md hover:bg-dark-card-bg">
+        <li class="py-2 px-3 text-gray-400 transition-colors rounded-md hover:bg-dark-card-bg active">
           <a href="CMSDramaInput.html" class="w-full h-full block">Input New Film</a>
         </li>
       </ul>
@@ -70,7 +70,7 @@
       </div>
     </li>
     <!-- Countries Item -->
-    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group active">
+    <li class="relative flex flex-col py-2 px-3 my-1 font-medium rounded-md cursor-pointer transition-colors text-dark-text sidebar-item group">
       <div class="flex items-center">
         <a href="CMSCountries.html" class="flex items-center rounded-md w-full">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -168,120 +168,18 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
-  <main class="bg-gray-800 flex-1 flex flex-col items-center p-10 bg-gray-800 text-dark-text">
-    <!-- Form Section -->
-    <div class="bg-dark-card-bg text-dark-text p-8 rounded-lg shadow-md w-full max-w-3xl mb-8">
-      <h2 class="text-3xl font-extrabold text-center mb-6 text-custom-blue-light">Add New User</h2>
-      <form id="user-form" class="space-y-6">
-        <div class="flex space-x-4">
-          <div class="w-1/2">
-            <label for="username" class="block text-sm font-medium text-dark-text">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              required
-              class="mt-2 block w-full px-4 py-3 text-black text-custom-input-text border border-custom-input-border rounded-md shadow-sm bg-custom-input-bg focus:outline-none focus:ring-custom-orange focus:border-custom-orange sm:text-sm"
-              placeholder="Enter username"
-            />
-          </div>
-          <div class="w-1/2">
-            <label for="email" class="block text-sm font-medium text-dark-text">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              class="mt-2 block w-full px-4 py-3 text-black text-custom-input-text border border-custom-input-border rounded-md shadow-sm bg-custom-input-bg focus:outline-none focus:ring-custom-orange focus:border-custom-orange sm:text-sm"
-              placeholder="Enter email"
-            />
-          </div>
-        </div>
-        <button
-          type="submit"
-          class="w-full bg-dark-accent text-dark-text py-3 px-4 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-0 focus:ring-offset-2 focus:ring-dark-accent text-sm font-medium">
-          Submit
-      </button>
-      </form>
+    <!-- Main Content -->
+    <div class="bg-dark-bg text-dark-text flex flex-col">
+      <!-- Main Content Area -->
+       
     </div>
-
-    <!-- Users Table -->
-    <div class="bg-dark-card-bg text-dark-text p-8 rounded-lg shadow-md w-full max-w-4xl">
-      <h2 class="text-2xl font-extrabold text-center mb-6 text-custom-blue-light">Users List</h2>
-      <div class="overflow-x-auto">
-        <table class="min-w-full bg-dark-card-bg text-dark-text">
-          <thead>
-            <tr>
-              <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Username</th>
-              <th class="py-3 px-4 border-b border-custom-gray text-left text-sm font-semibold">Email</th>
-              <th class="py-3 px-4 border-b border-custom-gray text-center text-sm font-semibold">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="users-table-body" class="text-sm">
-            <!-- Rows will be added here dynamically -->
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </main>
-
   <script>
     const sidebar = document.getElementById('sidebar');
     const toggleButton = document.getElementById('toggle-button');
     const toggleIcon = document.getElementById('toggle-icon');
     const logoutText = document.getElementById('logout-text');
     const submenu = document.querySelectorAll('.submenu');
-    // document.getElementById('user-form').addEventListener('submit', function(event) {
-    //   event.preventDefault();
-
-    //   const username = document.getElementById('username').value;
-    //   const email = document.getElementById('email').value;
-    //   const tableBody = document.getElementById('users-table-body');
-    //   const newRow = document.createElement('tr');
-
-    //   newRow.innerHTML = `
-    //     <td class="py-2 px-4 border-b border-custom-gray text-sm font-medium">${username}</td>
-    //     <td class="py-2 px-4 border-b border-custom-gray text-sm">${email}</td>
-    //     <td class="py-2 px-4 border-b border-custom-gray text-center">
-    //       <div class="flex justify-center space-x-2">
-    //         <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="sendFirstEmail(this)"> Send First Email </button>
-    //         <button class="bg-dark-accent text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dark-accent" onclick="editUser(this)"> Edit </button>
-    //         <button class="bg-red-500 text-dark-text py-1 px-3 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteUser(this)">Delete</button>
-    //       </div>
-    //     </td>
-    //   `;
-
-    //   tableBody.appendChild(newRow);
-
-    //   // Clear the form
-    //   document.getElementById('user-form').reset();
-    // });
-
-    // function sendFirstEmail(button) {
-    //   const row = button.parentElement.parentElement.parentElement;
-    //   const email = row.children[1].textContent;
-    //   alert(`Sending first email to ${email}`);
-    // }
-
-    // function editUser(button) {
-    //   const row = button.parentElement.parentElement.parentElement;
-    //   const usernameCell = row.children[0];
-    //   const emailCell = row.children[1];
-    //   const newUsername = prompt("Enter new username:", usernameCell.textContent);
-    //   const newEmail = prompt("Enter new email:", emailCell.textContent);
-    //   if (newUsername) {
-    //     usernameCell.textContent = newUsername;
-    //   }
-    //   if (newEmail) {
-    //     emailCell.textContent = newEmail;
-    //   }
-    // }
-
-    // function deleteUser(button) {
-    //   const row = button.parentElement.parentElement.parentElement;
-    //   row.remove();
-    // }
+    
     
     // Minimize sidebar logic  
     toggleButton.addEventListener('click', () => {
@@ -298,26 +196,26 @@
       toggleIcon.innerHTML = '<polyline points="15 6 9 12 15 18"></polyline>';
       logoutText.style.display = 'block';
     }
-  });
-  // Submenu toggle logic
-  const sidebarItems = document.querySelectorAll('.sidebar-item');
-  
-  // Fungsi untuk membuka atau menutup submenu hanya jika sidebar tidak diminimalkan
-  sidebarItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      if (!sidebar.classList.contains('collapsed')) {
-        const submenu = item.querySelector('.submenu');
-        submenu.classList.add('expanded');
-      }
     });
+    // Submenu toggle logic
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    
+    // Fungsi untuk membuka atau menutup submenu hanya jika sidebar tidak diminimalkan
+    sidebarItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        if (!sidebar.classList.contains('collapsed')) {
+          const submenu = item.querySelector('.submenu');
+          submenu.classList.add('expanded');
+        }
+      });
 
-    item.addEventListener('mouseleave', () => {
-      if (!sidebar.classList.contains('collapsed')) {
-        const submenu = item.querySelector('.submenu');
-        submenu.classList.remove('expanded');
-      }
+      item.addEventListener('mouseleave', () => {
+        if (!sidebar.classList.contains('collapsed')) {
+          const submenu = item.querySelector('.submenu');
+          submenu.classList.remove('expanded');
+        }
+      });
     });
-  });
   </script>
 </body>
 </html>
