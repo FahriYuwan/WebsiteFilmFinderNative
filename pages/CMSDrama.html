@@ -178,7 +178,7 @@
             <label for="filter-rating" class="block text-sm font-medium text-dark-text">Filter by Status</label>
             <select id="filter-rating" name="filter-rating" class="mt-2 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-custom-blue-light focus:border-custom-blue-light sm:text-sm text-black">
               <option value="">All Status</option>
-              <option value="approved">Approved </option>
+              <option value="edit">Edit </option>
               <option value="pending">Pending</option>
             </select>
           </div>
@@ -217,28 +217,32 @@
               </tr>
             </thead>
             <tbody id="films-table-body" class="text-sm">
-              <tr>
+              <tr data-film-id="1">
                 <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium">Film 1</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">Actor 1, Actor 2</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">Genre 1, Genre 2</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">This is a synopsis of Film 1.</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm">Pending</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-center">
+                  <button class="bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onclick="showPopup('Film 1',1)">Pending</button>
+                </td>
                 <td class="py-2 px-4 border-b border-gray-300 text-center">
                   <div class="flex justify-center space-x-2">
-                    <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Film 1')">Approve</button>
+                    <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="editFilm()">Edit</button>
                     <button class="bg-red-400 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteFilm(this)">Delete</button>
                   </div>
                 </td>
               </tr>
-              <tr>
+              <tr data-film-id="2">
                 <td class="py-2 px-4 border-b border-gray-300 text-sm font-medium">Film 2</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">Actor 3, Actor 4</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">Genre 3, Genre 4</td>
                 <td class="py-2 px-4 border-b border-gray-300 text-sm">This is a synopsis of Film 2.</td>
-                <td class="py-2 px-4 border-b border-gray-300 text-sm">Approved</td>
+                <td class="py-2 px-4 border-b border-gray-300 text-center">
+                  <button class="bg-gray-700 text-white py-2 px-4 rounded-md hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500" onclick="showPopup('Film 2',2)">Pending</button>
+                </td>
                 <td class="py-2 px-4 border-b border-gray-300 text-center">
                   <div class="flex justify-center space-x-2">
-                    <button class="bg-custom-blue-light text-white py-1 px-3 rounded-md hover:bg-custom-blue-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="showPopup('Film 2')">Approve</button>
+                    <button class="bg-custom-blue-light text-dark-text py-1 px-3 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark" onclick="editFilm()">Edit</button>
                     <button class="bg-red-400 text-white py-1 px-3 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="deleteFilm(this)">Delete</button>
                   </div>
                 </td>
@@ -274,16 +278,21 @@
           </div>
         </div>
         <div class="w-1/3">
-          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark">Trailer</h3>
+          <div class="space-y-2 w-full">
+            <label for="banner" class="block text-sm font-medium">Banner Image</label>
+            <input type="file" id="banner" class="w-full p-3 rounded-md bg-gray-700 border border-gray-600 focus:ring focus:ring-blue-500 text-white" accept="image/*" onchange="previewImage(event)">
+            <img id="banner-preview" class="mt-4 w-full rounded-md" src="#" alt="Banner Preview" style="display: none;">
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-custom-blue-dark mt-4">Trailer</h3>
           <video src="trailer.mp4" controls class="w-full rounded-lg border-2 border-gray-700"></video>
         </div>
-      </div>
-      <div class="flex justify-end space-x-4">
-        <button class="bg-custom-blue-light text-dark-text py-2 px-4 rounded-md hover:bg-dark-hover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-custom-blue-dark">Approve</button>
-        <button class="bg-red-500 text-dark-text py-2 px-4 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="exitPopup()">Close</button>
-      </div>
-    </div>
-  </div>
+        </div>
+        <div class="flex justify-end space-x-4">
+          <button class="bg-green-500 text-dark-text py-2 px-4 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2" onclick="approveFilm()">Approved</button>
+          <button class="bg-red-500 text-dark-text py-2 px-4 rounded-md hover:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2" onclick="nonApproveFilm()">Non-Approved</button>
+        </div>
+        </div>
+        </div>
 
   <script>
     const sidebar = document.getElementById('sidebar');
@@ -291,31 +300,87 @@
     const toggleIcon = document.getElementById('toggle-icon');
     const logoutText = document.getElementById('logout-text');
     const submenu = document.querySelectorAll('.submenu');
+    let currentFilmId = null;
     
-    function showPopup(filmName) {
+    //Logic to edit film
+    function editFilm() {
+      //Edit film logic here
+      const editButton = document.getElementById('edit-button');
+      const filmName = document.getElementById('film-name');
+      const filmDescription = document.getElementById('film-description');
+      const actors = document.getElementById('actors');
+
+      if (editButton.innerText === 'Edit') {
+        // Enable editing
+        filmName.contentEditable = true;
+        filmDescription.contentEditable = true;
+        actors.contentEditable = true;
+        editButton.innerText = 'Save';
+        editButton.classList.remove('bg-custom-blue-light');
+        editButton.classList.add('bg-green-500');
+      } else {
+        // Save changes
+        filmName.contentEditable = false;
+        filmDescription.contentEditable = false;
+        actors.contentEditable = false;
+        editButton.innerText = 'Edit';
+        editButton.classList.remove('bg-green-500');
+        editButton.classList.add('bg-custom-blue-light');
+
+        // Logic to save changes to the server or local storage
+        alert('Changes saved!');
+      }
+    
+    }
+    //preview image
+    function previewImage(event) {
+      const reader = new FileReader();
+      reader.onload = function() {
+        const output = document.getElementById('banner-preview');
+        output.src = reader.result;
+        output.style.display = 'block';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+    }
+    function showPopup(filmName, filmId) {
       const popup = document.getElementById('popup');
       const popupfilmName = document.getElementById('popup-film-name');
       popupfilmName.textContent = filmName;
+      currentFilmId = filmId;
       popup.classList.remove('hidden');
-    }
+}
 
     function hidePopup() {
       const popup = document.getElementById('popup');
       popup.classList.add('hidden');
     }
 
+    // Logic to approve film
+    function approveFilm() {
+      alert('Film approved!');
+      hidePopup();
+      // Change status to Approved
+      const statusButton = document.querySelector(`#films-table-body tr[data-film-id="${currentFilmId}"] td:nth-child(5) button`);
+      statusButton.textContent = 'Approved';
+      statusButton.classList.remove('bg-gray-700', 'hover:bg-gray-600', 'bg-red-500', 'hover:bg-red-700');
+      statusButton.classList.add('bg-green-500', 'hover:bg-green-700');
+    }
+
+    // Logic to non-approve film
+    function nonApproveFilm() {
+      alert('Film non-approved!');
+      hidePopup();
+      // Change status to Non-Approved
+      const statusButton = document.querySelector(`#films-table-body tr[data-film-id="${currentFilmId}"] td:nth-child(5) button`);
+      statusButton.textContent = 'Non-Approved';
+      statusButton.classList.remove('bg-gray-700', 'hover:bg-gray-600', 'bg-green-500', 'hover:bg-green-700');
+      statusButton.classList.add('bg-red-500', 'hover:bg-red-700');
+      statusButton.style.fontSize = '12px';
+    }
+
     function deleteFilm(button) {
       const row = button.parentElement.parentElement.parentElement;
       row.remove();
-    }
-
-    function approveSelected() {
-      const checkboxes = document.querySelectorAll('#films-table-body input[type="checkbox"]:checked');
-      checkboxes.forEach(checkbox => {
-        const row = checkbox.parentElement.parentElement;
-        const statusCell = row.children[4];
-        statusCell.textContent = 'Approved';
-      });
     }
 
     function deleteSelected() {
