@@ -22,9 +22,12 @@
   <link rel="stylesheet" href="styles.css">
   <title>Login Page</title>
 </head>
-<body class="bg-gray-100">
-<div class="flex flex-col items-center justify-center min-h-screen">
-  <div class="max-w-md w-full p-8 space-y-6 bg-white rounded-lg shadow-md">
+<body class="bg-gray-100" style="background-image: url('../src/img/Background.png'); background-size: cover; background-position: center;">
+  <!-- Overlay untuk efek gelap -->
+  <div class="absolute inset-0 bg-black opacity-50"></div>
+
+<div class="flex flex-col items-center justify-center min-h-screen relative z-10">
+  <div class="max-w-md w-full p-8 space-y-6 bg-white bg-opacity-75 rounded-lg shadow-md ">
     <div class="text-center">
       <img class="mx-auto h-[150px] w-auto" src="../images/full-logo.png" alt="Logo">
       <h2 class=" text-3xl font-extrabold text-gray-900">
