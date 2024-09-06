@@ -214,12 +214,6 @@
   </div>
 
   <script>
-    const sidebar = document.getElementById('sidebar');
-    const toggleButton = document.getElementById('toggle-button');
-    const toggleIcon = document.getElementById('toggle-icon');
-    const logoutText = document.getElementById('logout-text');
-    const submenu = document.querySelectorAll('.submenu');
-
     document.getElementById('country-form').addEventListener('submit', function(event) {
       event.preventDefault();
 
@@ -257,6 +251,12 @@
       }
       row.remove();
     }
+
+    const sidebar = document.getElementById('sidebar');
+    const toggleButton = document.getElementById('toggle-button');
+    const toggleIcon = document.getElementById('toggle-icon');
+    const logoutText = document.getElementById('logout-text');
+    const submenu = document.querySelectorAll('.submenu');
 
     // Minimize sidebar logic  
     toggleButton.addEventListener('click', () => {
