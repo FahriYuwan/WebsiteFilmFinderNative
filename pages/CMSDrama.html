@@ -435,6 +435,10 @@
 
     function deleteFilm(button) {
       const row = button.parentElement.parentElement.parentElement;
+      // confirm delete
+      if (!confirm('Are you sure you want to delete this film?')) {
+        return;
+      }
       row.remove();
     }
 
