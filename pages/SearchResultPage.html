@@ -10,11 +10,13 @@
         theme: {
           extend: {
             colors: {
-              'custom-blue-dark': '#3D5A80',
-              'custom-blue-light': '#98C1D9',
-              'custom-orange': '#EE6C4D',
-              'custom-white': '#FFFFFF',
-              'custom-blue': '#293241',
+              'dark-bg': '#1F2937',  /* Dark gray-blue */
+              'dark-hover': '#334155', /* Slightly lighter gray-blue */
+              'dark-text': '#F9FAFB', /* Very light gray */
+              'dark-accent': '#EE6C4D', /* Custom orange for accents */
+              'dark-border': '#374151', /* Darker gray for borders */
+              'dark-card-bg': '#2D3748', /* Darker gray-blue for cards */
+              'dark-card-border': '#4A5568', /* Slightly lighter gray for card borders */
             }
           }
         }
@@ -35,12 +37,12 @@
         placeholder="Search movies, logos..." 
         class="w-96 px-4 py-2 text-gray-700 bg-white rounded-l focus:outline-none"
       />
-      <button class="px-4 py-2 bg-red-600 text-white font-semibold rounded-r">
+      <button class="px-4 py-2 text-white font-semibold rounded-r bg-custom-blue-light text-dark-text rounded sm:rounded hover:bg-dark-accent">
         Search
       </button>
     </div>
     <div>
-      <button class="px-4 py-2 bg-red-600 rounded">Sign In</button>
+      <button class="px-4 py-2 rounded bg-dark-hover px-5 py-3 font-semibold text-dark-text hover:bg-dark-accent">Sign In</button>
     </div>
   </nav>
   <div class="text-center mt-8">
@@ -71,9 +73,9 @@
   </div>
 
   <!-- Results List -->
-  <div class="mt-8 max-w-4xl mx-auto">
+  <div class="mt-8 max-w-4xl mx-auto" id="resultsList">
       <!-- Item 1 -->
-      <div class="flex items-start space-x-4 mb-6 bg-white">
+      <div class="flex items-start space-x-4 mb-6 bg-gray-800 rounded">
           <div class="w-24 h-24 bg-gray-300 rounded-lg"></div>
           <div class="flex-1">
               <h2 class="text-lg font-semibold">Title of the drama 1 that makes two lines</h2>
@@ -120,6 +122,5 @@
           <div class="text-sm text-gray-600">19 views</div>
       </div>
   </div>
-
 </body>
 </html>

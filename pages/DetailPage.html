@@ -29,18 +29,19 @@
   <nav class="flex items-center justify-between p-4 bg-gray-800">
     <img src="..\src\img\just-text.png" id="sidebar-logo" class="w-60 overflow-hidden transition-all" alt="Logo" />
     <!-- Search bar with button -->
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-2 ">
       <input 
+        id="searchInput"
         type="text" 
         placeholder="Search movies, logos..." 
         class="w-96 px-4 py-2 text-gray-700 bg-white rounded-l focus:outline-none"
       />
-      <button class="px-4 py-2 text-white font-semibold rounded-r bg-dark-hover hover:bg-dark-border transition duration-300">
+      <button class="px-4 py-2 text-white font-semibold rounded-r bg-custom-blue-light text-dark-text rounded sm:rounded hover:bg-dark-accent">
         Search
       </button>
     </div>
     <div>
-      <button class="px-4 py-2 bg-red-600 rounded">Sign In</button>
+      <button class="px-4 py-2 bg-dark-hover rounded text-dark-text hover:bg-dark-accent">Sign In</button>
     </div>
   </nav>
   
@@ -180,3 +181,23 @@
 
 </body>
 </html>
+
+<script>
+  // mencari film berdasarkan judul film menggunakan event listener
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+
+    searchInput.addEventListener('focus', function() {
+      window.location.href = 'SearchResultPage.html';
+    });
+
+    searchInput.addEventListener('input', function() {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Jika ada input pencarian, pindah ke halaman SearchResultPage.html
+      if (searchTerm) {
+        window.location.href = `SearchResultPage.html?query=${encodeURIComponent(searchTerm)}`;
+      }
+    });
+  });
+</script>

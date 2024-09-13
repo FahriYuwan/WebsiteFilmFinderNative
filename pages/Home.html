@@ -37,13 +37,13 @@
         placeholder="Search movies, logos..." 
         class="w-full sm:w-96 px-4 py-2 text-gray-700 bg-white rounded sm:rounded-l focus:outline-none"
       />
-      <button class=" w-full sm:w-auto px-5 py-2 font-semibold bg-custom-blue-light text-dark-text rounded sm:rounded-r">
+      <button class=" w-full sm:w-auto px-5 py-2 bg-custom-blue-light text-dark-text rounded sm:rounded hover:bg-dark-accent">
         Search
       </button>
     </div>
     <div class="mt-2 sm:mt-0">
       <a href="Login.html" class="text-white font-semibold">
-        <button class="w-full sm:w-auto bg-dark-hover px-5 py-3 font-semibold text-dark-text rounded">Sign In</button>
+        <button class="w-full sm:w-auto bg-dark-hover px-5 py-3 rounded bg-dark-hover font-semibold text-dark-text hover:bg-dark-accent">Sign In</button>
       </a>
     </div>
   </nav>
@@ -95,71 +95,80 @@
     
     <!-- Add more cards as needed -->
 
-     <!-- Card 1 -->
-     <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <img class="w-full" src="../src/img/wednesday.jpg" alt="Random Image">
-        <div class="px-6 py-4">
-          <div class="text-black text-xl mb-2">Wednesday</div>
-          <p class="text-gray-700 text-base">
-            Netflix Movie
-          </p>
-        </div>
+    <!-- Card 1 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="../src/img/wednesday.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Wednesday</div>
+        <p class="text-gray-700 text-base">
+          Netflix Movie
+        </p>
       </div>
-  
-      <!-- Card 2 -->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <img class="w-full" src="..\src\img\blackmirror.avif" alt="Random Image">
-        <div class="px-6 py-4">
-          <div class="text-black text-xl mb-2">Black Mirror</div>
-          <p class="text-gray-700 text-base">
-            Netflix
-          </p>
-        </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\blackmirror.avif" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Black Mirror</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
       </div>
-  
-      <!-- Card 3 -->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <img class="w-full" src="..\src\img\queengambit.jpg" alt="Random Image">
-        <div class="px-6 py-4">
-          <div class="text-black text-xl mb-2">The Queen Gambit</div>
-          <p class="text-gray-700 text-base">
-            Netflix
-          </p>
-        </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\queengambit.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">The Queen Gambit</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
       </div>
-  
-      <!-- Card 4 -->
-      <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
-        <img class="w-full" src="..\src\img\dark.jpg" alt="Random Image">
-        <div class="px-6 py-4">
-          <div class="text-black text-xl mb-2">Dark</div>
-          <p class="text-gray-700 text-base">
-            Netflix
-          </p>
-        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="max-w-sm rounded overflow-hidden shadow-lg bg-white">
+      <img class="w-full" src="..\src\img\dark.jpg" alt="Random Image">
+      <div class="px-6 py-4">
+        <div class="text-black text-xl mb-2">Dark</div>
+        <p class="text-gray-700 text-base">
+          Netflix
+        </p>
       </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="flex justify-center mt-6">
+    <nav class="inline-flex space-x-2">
+      <!-- <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Previous</button> -->
+      <button class="px-4 py-2 bg-dark-accent text-white rounded" disabled>1</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">2</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">3</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">Next</button>
+    </nav>
   </div>
 </body>
 </html>
 
 <script>
-  //mencari film berdasarkan judul film menggunakan event listener
+  // mencari film berdasarkan judul film menggunakan event listener
   document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.getElementById('searchInput');
-  const cards = document.querySelectorAll('.max-w-sm');
+    const searchInput = document.getElementById('searchInput');
 
-  searchInput.addEventListener('input', function() {
-    const searchTerm = searchInput.value.toLowerCase();
+    searchInput.addEventListener('focus', function() {
+      window.location.href = 'SearchResultPage.html';
+    });
 
-    cards.forEach(card => {
-      const title = card.querySelector('.text-black.text-xl').textContent.toLowerCase();
-      if (title.includes(searchTerm)) {
-        card.style.display = '';
-      } else {
-        card.style.display = 'none';
+    searchInput.addEventListener('input', function() {
+      const searchTerm = searchInput.value.toLowerCase();
+
+      // Jika ada input pencarian, pindah ke halaman SearchResultPage.html
+      if (searchTerm) {
+        window.location.href = `SearchResultPage.html?query=${encodeURIComponent(searchTerm)}`;
       }
     });
   });
-});
-
 </script>
