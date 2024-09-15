@@ -141,20 +141,88 @@
   </div>
   <div class="flex justify-center items-center py-8" style="margin-top: -40px;">
     <nav class="inline-flex space-x-2">
-      <!-- <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700">Previous</button> -->
-      <button class="px-4 py-2 bg-dark-accent text-white rounded" disabled>1</button>
-      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">2</button>
-      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">3</button>
-      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent">Next</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-gray-700" id="prevButton">Previous</button>
+      <button class="px-4 py-2 bg-dark-accent text-white rounded" id="page1Button">1</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent" id="page2Button">2</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent" id="page3Button">3</button>
+      <button class="px-4 py-2 bg-gray-800 text-white rounded hover:bg-dark-accent" id="nextButton">Next</button>
     </nav>
   </div>
 </body>
 </html>
 
 <script>
-  // mencari film berdasarkan judul film menggunakan event listener
   document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('searchInput');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const page1Button = document.getElementById('page1Button');
+    const page2Button = document.getElementById('page2Button');
+    const page3Button = document.getElementById('page3Button');
+    let currentPage = 1;
+
+    function updatePagination() {
+      prevButton.disabled = currentPage === 1;
+      nextButton.disabled = currentPage === 3;
+      
+      page1Button.disabled = currentPage === 1;
+      page2Button.disabled = currentPage === 2;
+      page3Button.disabled = currentPage === 3;
+
+      prevButton.classList.toggle('opacity-50', currentPage === 1);
+      prevButton.classList.toggle('cursor-not-allowed', currentPage === 1);
+      prevButton.classList.toggle('hover:bg-gray-700', currentPage !== 1);
+
+      nextButton.classList.toggle('opacity-50', currentPage === 3);
+      nextButton.classList.toggle('cursor-not-allowed', currentPage === 3);
+      nextButton.classList.toggle('hover:bg-dark-accent', currentPage !== 3);
+
+      page1Button.classList.toggle('bg-dark-accent', currentPage === 1);
+      page1Button.classList.toggle('bg-gray-800', currentPage !== 1);
+      page1Button.classList.toggle('opacity-50', currentPage === 1);
+      page1Button.classList.toggle('cursor-not-allowed', currentPage === 1);
+      page1Button.classList.toggle('hover:bg-dark-accent', currentPage !== 1);
+
+      page2Button.classList.toggle('bg-dark-accent', currentPage === 2);
+      page2Button.classList.toggle('bg-gray-800', currentPage !== 2);
+
+      page3Button.classList.toggle('bg-dark-accent', currentPage === 3);
+      page3Button.classList.toggle('bg-gray-800', currentPage !== 3);
+      page3Button.classList.toggle('opacity-50', currentPage === 3);
+      page3Button.classList.toggle('cursor-not-allowed', currentPage === 3);
+      page3Button.classList.toggle('hover:bg-dark-accent', currentPage !== 3);
+    }
+
+    prevButton.addEventListener('click', function() {
+      if (currentPage > 1) {
+        currentPage--;
+        updatePagination();
+      }
+    });
+
+    nextButton.addEventListener('click', function() {
+      if (currentPage < 3) {
+        currentPage++;
+        updatePagination();
+      }
+    });
+
+    page1Button.addEventListener('click', function() {
+      currentPage = 1;
+      updatePagination();
+    });
+
+    page2Button.addEventListener('click', function() {
+      currentPage = 2;
+      updatePagination();
+    });
+
+    page3Button.addEventListener('click', function() {
+      currentPage = 3;
+      updatePagination();
+    });
+
+    updatePagination();
 
     searchInput.addEventListener('focus', function() {
       window.location.href = 'SearchResultPage.html';
@@ -162,8 +230,6 @@
 
     searchInput.addEventListener('input', function() {
       const searchTerm = searchInput.value.toLowerCase();
-
-      // Jika ada input pencarian, pindah ke halaman SearchResultPage.html
       if (searchTerm) {
         window.location.href = `SearchResultPage.html?query=${encodeURIComponent(searchTerm)}`;
       }
